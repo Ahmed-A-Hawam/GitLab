@@ -1,0 +1,115 @@
+package amd;
+
+import java.util.Scanner;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       
+    		Scanner input = new Scanner(System.in);
+    		System.out.println("Enter the number of rows:");
+    		int rows = input.nextInt();
+    		System.out.println("Enter the number of seats in each row:");
+    		int seats = input.nextInt();
+    		System.out.println("");
+    		showSeats(rows,seats);
+
+    		System.out.println("Enter the a row number :");
+    		int row = input.nextInt();
+    		System.out.println("Enter the a seat number in that row:");
+    		int seat = input.nextInt();
+    		costTicket(row, seat, rows, seats);
+    		showReservedSeats(row, seat, rows, seats);
+    		//System.out.println("Total income:\n"+"$"+totalIncome);
+	}
+    		
+    		public static void costTicket  (int row , int seat ,int rows ,int seats) {
+    		
+    			int totalSeats = rows * seats;
+        		int ticketPrice ;
+
+        		if (totalSeats <= 60) {
+        			ticketPrice =  10;
+        		} else {
+        			
+        			int firstHalfSeats = (rows/2);
+        			if (row <= firstHalfSeats) {
+        				ticketPrice =10;	
+        			} else {
+        				ticketPrice =8;	
+
+        			}
+        		}
+             System.out.println("Ticket PriceL:$"+ticketPrice);        			
+        			
+    		
+    		}
+    			
+ 
+    		
+    		public static void showSeats(int rows, int seats) {
+    		
+    		 System.out.print("Cinema: \n ");
+    		 for (int j=1;j<=seats;j++) {
+    			 System.out.print(" "+j);
+    		 }
+    		 System.out.println(" ");
+    	        for (int i = 1; i<=rows;i++) {
+    	        	for (int j =0;j<=seats;j++) {
+    	        		if (j ==0 ) {
+    	        			System.out.print(i);
+    	        			
+    	        		} else if (j==8) {
+    	        			System.out.print("S");
+    	        		} else {
+    	        			System.out.print("S");
+
+    	        		}
+    	        		
+    	        		System.out.print(" ");
+    	        		
+    	        	}
+    	     
+    	    		System.out.println("");
+
+    	        
+        }
+    		
+
+}
+    		
+    		public static void showReservedSeats(int row, int seat,int rows ,int seats) {
+        		
+       		 System.out.print("Cinema: \n ");
+       		 for (int j=1;j<=seats;j++) {
+       			 System.out.print(" "+j);
+       		 }
+       		 System.out.println(" ");
+       	        for (int i = 1; i<=rows;i++) {
+       	        	for (int j =0;j<=seats;j++) {
+       	        		if (j ==0 ) {
+       	        			System.out.print(i);
+       	        			
+       	        		} else if(i == row && j ==seat) {
+       	        			
+       	        			System.out.print("B");
+
+       	        		} else {
+       	        			System.out.print("S");
+
+       	        		}
+       	        		
+       	        		System.out.print(" ");
+       	        		
+       	        	}
+       	     
+       	    		System.out.println("");
+
+       	        
+           }
+       		
+
+   }
+}
+
